@@ -1,0 +1,52 @@
+ul {
+    padding: 0;
+    margin: 0;
+
+    .wysiwyg & {
+        li {
+            margin-bottom: rem(20px);
+
+            > ul {
+                padding-top: rem(10px);
+                padding-left: rem(30px);
+            }
+        }
+    }
+
+}
+
+.content-list {
+    list-style: none;
+
+    li {
+        margin-bottom: rem(10px);
+    }
+
+    &__icon {
+        display: inline-block;
+        position: relative;
+        bottom: rem(-8px);
+        width: rem(30px);
+        height: rem(30px);
+        border-radius: 50%;
+        margin-right: rem(15px);
+
+        @media screen and (min-width: $medium) {
+            width: rem(45px);
+            height: rem(45px);
+            bottom: rem(-16px);
+        }
+    }
+
+    a,span {
+        display: inline;
+        font-weight: bold;
+        font-family: $header-font-stack;
+
+        @media screen and (min-width: $medium) {
+            display: inline-block;
+        }
+    }
+
+    
+}

@@ -1,0 +1,50 @@
+.promo {
+  background-color: $deliveroo-aubergine;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding-top: rem(60px) !important;
+
+  &--basic {
+    color: $black;
+    background-color: $white;
+    position: relative;
+    z-index: 1000;
+    padding-bottom: rem(15px);
+
+    .promo__content {
+      @media (min-width: $medium) {
+        max-width: rem(700px);
+        padding: rem(30px) 0 0 0;
+      }
+    }
+    .promo__title {
+      width: 100%;
+    }
+    .promo__confetti {
+      display: none;
+    }
+  }
+
+  &__content {
+    margin: auto;
+    a {
+      text-decoration: underline;
+    }
+
+    @media (min-width: $medium) {
+      padding: rem(60px) 0 rem(30px) 0;
+    }
+  }
+
+  &__title {
+    @media (min-width: $medium) {
+      width: auto;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+}

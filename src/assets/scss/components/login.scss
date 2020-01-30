@@ -1,0 +1,28 @@
+.login {
+  background-color: $deliveroo-teal;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s;
+
+  &__form-container {
+    .logo {
+      margin: 40px auto;
+    }
+    .form-input {
+      margin-bottom: 15px;
+    }
+    .failed-message {
+      text-align: center;
+      color: $deliveroo-chillijam;
+      animation: fadeIn 0.5s;
+    }
+    .button {
+    }
+    width: 400px;
+  }
+  form {
+    margin: auto;
+  }
+}

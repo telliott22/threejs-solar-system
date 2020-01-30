@@ -1,0 +1,8 @@
+.thumb {
+  overflow: hidden;
+  path {
+    &:first-of-type {
+      transform-origin: center center;
+    }
+  }
+}

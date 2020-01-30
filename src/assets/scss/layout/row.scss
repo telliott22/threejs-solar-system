@@ -1,0 +1,47 @@
+.row {
+  max-width: rem(1200px);
+  margin: 0 auto;
+  padding: 0 $base-padding / 2;
+
+  @media (min-width: $small) {
+    padding: 0 $base-padding;
+  }
+
+  @media (min-width: $xlarge) {
+    padding: 0;
+  }
+
+  &--full {
+    max-width: none;
+  }
+
+  &--full-mobile {
+    overflow: hidden;
+    @media (max-width: $medium) {
+      max-width: none;
+      padding: 0;
+    }
+  }
+
+  &--narrow-mobile {
+    @media (max-width: $medium) {
+      max-width: none;
+      padding: 0 $base-padding;
+    }
+  }
+
+  &--full-padded {
+    max-width: none;
+    padding: 0 $base-padding / 2;
+
+    @media (min-width: $small) {
+      padding: 0 $base-padding;
+    }
+  }
+
+  &--narrow {
+    @media (min-width: $small) {
+      padding: 0 $base-padding * 2;
+    }
+  }
+}

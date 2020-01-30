@@ -1,0 +1,475 @@
+.tile {
+  &__content {
+    transition: all 0.2s;
+  }
+
+  &__content-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &--button-row {
+      justify-self: flex-end;
+      margin-top: auto !important;
+      justify-content: flex-start;
+
+      .button {
+        &:first-of-type {
+          margin-right: rem(15px);
+        }
+      }
+    }
+  }
+
+  &__button-container {
+    flex: 0 0 rem(110px);
+  }
+
+  &--winner,
+  &--restaurant {
+    box-shadow: 0 rem(2px) rem(4px) rgba(0, 0, 0, 0.12);
+    border-radius: rem(4px);
+    margin: 0 rem(15px) rem(30px) rem(15px);
+    overflow: hidden;
+
+    .tile__image {
+      height: rem(175px);
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      overflow: hidden;
+    }
+    flex: 0 0 100%;
+  }
+
+  &--winner {
+    background-color: $white;
+
+    @media (min-width: $medium) {
+      flex: 0 0 calc(50% - 30px);
+    }
+
+    .tile__header {
+      padding: rem(20px);
+
+      h5 {
+        font-style: italic;
+        color: $white;
+        font-family: $text-font-stack;
+      }
+
+      background-color: $deliveroo-chillijam;
+    }
+
+    &:nth-of-type(2) {
+      .tile__header {
+        background-color: $deliveroo-berry;
+      }
+    }
+
+    &:nth-of-type(3) {
+      .tile__header {
+        background-color: $deliveroo-teal;
+      }
+    }
+
+    &:nth-of-type(4) {
+      .tile__header {
+        background-color: $deliveroo-anchovy;
+      }
+    }
+
+    &:nth-of-type(4) {
+      .tile__header {
+        background-color: $deliveroo-yellow;
+      }
+    }
+
+    h5,
+    address {
+      margin: 0;
+    }
+
+    .tile__image {
+      height: rem(270px);
+      overflow: hidden;
+    }
+    .tile__content {
+      height: rem(310px);
+      padding: rem(20px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    @media (min-width: $large) {
+      flex: 0 0 calc(50% - 30px);
+    }
+  }
+
+  &--restaurant {
+    @media (min-width: $medium) {
+      flex: 0 0 calc(50% - 30px);
+    }
+
+    @media (min-width: $large) {
+      flex: 0 0 calc(33% - 30px);
+    }
+
+    .tile__image {
+      height: rem(175px);
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      overflow: hidden;
+    }
+    .tile__content {
+      min-height: rem(85px);
+      padding: rem(20px);
+    }
+
+    .tile__text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100%;
+
+      h5,
+      address {
+        margin: 0;
+      }
+    }
+
+    &--second-round {
+      .tile__image {
+        height: 270px;
+      }
+      .tile__content {
+        height: rem(230px);
+      }
+      .tile__description {
+        p {
+          margin-bottom: 0;
+        }
+      }
+      .tile__text-container {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      @media (min-width: $large) {
+        flex: 0 0 calc(50% - 30px);
+      }
+    }
+  }
+
+  &--square {
+    .tile__image {
+      height: rem(305px);
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: url(/instagram.svg);
+        background-size: contain;
+        top: rem(20px);
+        right: rem(20px);
+        height: rem(30px);
+        width: rem(30px);
+        z-index: 1000;
+      }
+    }
+  }
+
+  &--category {
+    height: rem(300px);
+    position: relative;
+    margin-top: rem(70px);
+
+    flex: 0 0 rem(260px);
+
+    &:first-of-type {
+      margin-left: rem(42px);
+
+      @media (min-width: $medium) {
+        margin-left: 0;
+      }
+    }
+
+    //Super hacky way to add margin right to an flexboxed item inside a overflow: scroll container, but aparently this is a limitation of CSS. https://stackoverflow.com/questions/11695354/css-right-margin-does-not-work-inside-a-div-with-overflow-scroll
+    &:last-of-type {
+      &::after {
+        content: '';
+        display: block;
+        width: 42px;
+        height: 100%;
+        position: absolute;
+        right: -42px;
+        top: 0;
+      }
+      @media (min-width: $medium) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    @media (min-width: $medium) {
+      flex: 0 0 33%;
+      height: rem(350px);
+    }
+
+    @media (min-width: $large) {
+      flex: 0 0 25%;
+      height: rem(350px);
+    }
+
+    .tile__name,
+    .tile__label,
+    .button {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .tile__icon {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      top: rem(-25px);
+      height: rem(90px);
+      width: 100%;
+
+      img,
+      svg {
+        height: 100%;
+        display: block;
+        margin: auto;
+      }
+
+      @media (min-width: $medium) {
+        top: rem(-20px);
+        height: rem(110px);
+      }
+    }
+
+    .tile__label,
+    .tile__name {
+      padding: 0 15px;
+
+      @media (min-width: $medium) {
+        padding: 0 30px;
+      }
+    }
+
+    .tile__label {
+      top: rem(85px);
+      white-space: nowrap;
+      width: 100%;
+
+      h3 {
+        font-style: italic;
+        font-family: $text-font-stack;
+        margin: 0;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 24px;
+      }
+
+      @media (min-width: $medium) {
+        top: initial;
+        bottom: 200px;
+
+        h3 {
+          font-size: 18px;
+          font-weight: 700;
+          font-style: italic;
+          line-height: 36px;
+        }
+      }
+    }
+
+    .tile__name {
+      bottom: rem(76px);
+      height: rem(120px);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: rem(24px);
+        font-weight: 700;
+        line-height: rem(24px);
+        margin: 0;
+      }
+
+      @media (min-width: $medium) {
+        bottom: 110px;
+        height: rem(100px);
+        h2 {
+          font-family: $header-font-stack;
+          font-size: 36px;
+          line-height: 36px;
+          margin: 0;
+        }
+      }
+    }
+
+    .button {
+      bottom: 30px;
+      white-space: nowrap;
+
+      @media (min-width: $medium) {
+        bottom: 40px;
+      }
+    }
+
+    .tile__content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      color: $alt-text-color;
+      position: relative;
+      margin: 0 10px;
+      overflow: hidden;
+
+      @media (min-width: $medium) {
+        margin: 0 $grid-margin/2;
+      }
+
+      &::before {
+        content: '';
+        background-color: $white;
+        position: absolute;
+        top: -100px;
+        height: 100px;
+        width: 120%;
+        transform: rotate(10deg);
+        transform-origin: top left;
+      }
+    }
+
+    &:nth-of-type(5n + 1) {
+      .tile__content {
+        background-color: $deliveroo-berry;
+
+        &::before {
+          transform-origin: top left;
+          transform: rotate(10deg);
+          right: 0;
+        }
+        // margin-right: 25px;
+      }
+    }
+
+    &:nth-of-type(5n + 2) {
+      .tile__content {
+        background-color: $deliveroo-chillijam;
+
+        &::before {
+          transform-origin: top right;
+          transform: rotate(-10deg);
+          right: 0;
+        }
+      }
+    }
+
+    &:nth-of-type(5n + 3) {
+      .tile__content {
+        background-color: $deliveroo-teal-dark;
+      }
+    }
+
+    &:nth-of-type(5n + 4) {
+      .tile__content {
+        background-color: $deliveroo-aubergine;
+
+        // margin-left: 25px;
+
+        &::before {
+          transform: rotate(-10deg);
+          transform-origin: top right;
+          right: 0;
+        }
+      }
+    }
+
+    &:nth-of-type(4n + 1) {
+      .tile__content {
+        &::before {
+          transform-origin: top left;
+          transform: rotate(10deg);
+          right: initial;
+        }
+      }
+    }
+
+    &:nth-of-type(4n + 2) {
+      .tile__content {
+        &::before {
+          transform-origin: top right;
+          transform: rotate(-10deg);
+          right: 0;
+        }
+      }
+    }
+
+    &:nth-of-type(4n + 3) {
+      .tile__content {
+        &::before {
+          transform-origin: top left;
+          transform: rotate(10deg);
+          right: initial;
+        }
+      }
+    }
+
+    &:nth-of-type(4n + 4) {
+      .tile__content {
+        &::before {
+          transform: rotate(-10deg);
+          transform-origin: top right;
+          right: 0;
+        }
+      }
+    }
+
+    &:nth-of-type(5n + 5) {
+      .tile__content {
+        background-color: $deliveroo-yellow;
+      }
+    }
+  }
+
+  &--voted:not(.tile--restaurant-voted) {
+    .tile__content {
+      background-color: $silver !important;
+      color: $deliveroo-anchovy;
+    }
+    .tile__image {
+      opacity: 0.3;
+    }
+
+    .button {
+      background-color: transparent;
+      color: $deliveroo-anchovy;
+      text-decoration: underline;
+    }
+  }
+
+  &--restaurant-voted {
+    .button {
+      background-color: $deliveroo-mustard;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}

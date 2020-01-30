@@ -1,0 +1,46 @@
+svg {
+  fill: currentColor;
+}
+
+/* img {
+	transition: opacity 1s;
+}
+
+img[lazy=loading] {
+	opacity: 0;
+}
+
+img[lazy=loaded] {
+	opacity: 1;
+} */
+
+.image-wrap {
+  position: relative;
+}
+
+.image-fill {
+  @include object-fit(cover);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-fit {
+  @include object-fit(contain);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.responsive-image {
+  img,
+  picture {
+    animation: fadeIn 0.5s;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,9 @@
+.slice {
+    margin-top: $base-padding / 2;
+    margin-bottom: $base-padding / 2;
+
+    @media screen and (min-width: $medium) {
+        margin-top: $base-padding;
+        margin-bottom: $base-padding;
+    }
+}

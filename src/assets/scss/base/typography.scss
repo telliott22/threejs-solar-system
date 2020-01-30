@@ -1,0 +1,169 @@
+/**
+ * Basic typography style for copy text
+ */
+html {
+  font-size: 100%;
+}
+body {
+  color: $text-color;
+  font: normal 100% / 1.6 $text-font-stack;
+  @include fontSize(16px);
+  line-height: 1.5;
+  font-weight: normal;
+  letter-spacing: $letter-spacing-text;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+/**
+ * Text Highlight color
+ */
+::-moz-selection {
+  background: $silver;
+  color: $lightblack;
+}
+::selection {
+  background: $silver;
+  color: $lightblack;
+}
+
+// Extendable text styles
+// These are reusable text styles that we might want to use on multiple different elements.
+
+/**
+ * Basic typography style for headers
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-family: $header-font-stack;
+  font-weight: 700;
+  line-height: 1.2;
+  // margin-bottom: rem(20px);
+  // margin-top: rem(20px);
+
+  &.heading--block {
+    font-weight: 700;
+  }
+
+  &.heading--white {
+    color: $white;
+  }
+
+  :not(.page) {
+    .bg--white &,
+    .bg--smoke &,
+    .bg--yellow & {
+      color: $darkblue;
+    }
+  }
+}
+
+h1 {
+  @include fontSize(40px);
+  line-height: 0.875;
+  // margin-bottom: 0.52em;
+  font-weight: 700;
+  letter-spacing: -0.84px;
+
+  @media screen and (min-width: $medium) {
+    @include fontSize(60px);
+    line-height: rem(48px);
+  }
+
+  @media screen and (min-width: $large) {
+    @include fontSize(70px);
+    line-height: rem(70px);
+  }
+}
+
+h2 {
+  @include fontSize(28px);
+
+  @media (min-width: $medium) {
+    @include fontSize(40px);
+  }
+}
+
+h3 {
+  @include fontSize(30px);
+  letter-spacing: -0.5px;
+  margin-bottom: rem(15px);
+  margin-top: rem(15px);
+}
+
+h4 {
+  font-family: $text-font-stack;
+  @include fontSize(24px);
+  font-weight: 700;
+  line-height: rem(30px);
+  &.italic {
+    font-style: italic;
+  }
+}
+
+h5 {
+  font-size: rem(18px);
+  font-weight: 700;
+  line-height: rem(24px);
+}
+
+p {
+  font-family: $text-font-stack;
+  font-size: rem(16px);
+  font-weight: 400;
+  line-height: rem(24px);
+  &.small {
+    @include fontSize(15px);
+  }
+  &.italic {
+    color: $deliveroo-teal;
+    font-style: italic;
+  }
+}
+
+small,
+address {
+  font-family: $text-font-stack;
+  font-size: rem(12px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: rem(24px);
+}
+small {
+  a {
+    text-decoration: underline;
+  }
+}
+
+strong {
+  font-weight: bold;
+}
+
+@media screen and (min-width: $medium) {
+  .align {
+    &--left {
+      text-align: left;
+    }
+    &--right {
+      text-align: left;
+    }
+    &--centre {
+      text-align: center;
+    }
+  }
+}
+
+a {
+  color: $white;
+  cursor: pointer;
+}
+
+.highlight {
+  color: $deliveroo-teal;
+  font-weight: bold;
+}

@@ -1,0 +1,336 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+  -webkit-transition-delay: 9999s;
+}
+
+textarea,
+select,
+.v-select,
+input[type='text'],
+input[type='email'],
+input[type='date'],
+input[type='tel'],
+input[type='url'],
+input[type='password'],
+input[type='number'] {
+  padding: rem(20px) rem(20px) rem(18px);
+  border: 1px solid $silver;
+  outline: none;
+  background: $white;
+  position: relative;
+  color: $text-color;
+  transition: color 0.2s;
+  margin: 0;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  font-family: $text-font-stack;
+  transition: background-color 0.2s;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+    -webkit-transition-delay: 9999s;
+    -webkit-box-shadow: 0 0 0 30px $smoke inset;
+    -webkit-text-fill-color: $smoke;
+    -webkit-text-fill-color: $text-color;
+  }
+
+  &::-webkit-input-placeholder {
+    transition: color 0.2s;
+  }
+
+  ~ .highlight {
+    height: rem(2px);
+    transition: right 0.2s $ease-long-tail;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    background: $brand-primary;
+  }
+
+  &:focus {
+    outline: 0;
+    color: $text-color;
+
+    ~ .highlight {
+      transition: right 0.7s $ease-long-tail;
+      right: 0;
+    }
+  }
+
+  &.error {
+    background-color: $deliveroo-chillijam;
+    color: $white;
+    border-color: $deliveroo-chillijam;
+    &::-webkit-input-placeholder {
+      color: $white;
+    }
+  }
+}
+textarea {
+  min-height: rem(200px);
+  width: 100%;
+}
+
+.form-section-header {
+  border-bottom: 1px solid $silver;
+  padding-bottom: rem(7px);
+  margin-bottom: rem(40px);
+}
+
+.form-input {
+  position: relative;
+  //   margin-bottom: rem(18px);
+  //   flex: 0 0 100%;
+  max-width: 100%;
+
+  input {
+    line-height: rem(10px);
+  }
+
+  @media (min-width: $medium) {
+    &--textarea {
+      max-width: 100%;
+    }
+
+    &--half {
+      flex: 1 0 50%;
+      max-width: calc(50% - 15px);
+    }
+
+    &--clear {
+      margin-right: rem(10px);
+
+      + .form-input {
+        margin-left: 0;
+      }
+    }
+  }
+
+  label {
+    color: $text-color;
+    display: block;
+    text-align: left;
+
+    &.required {
+      &:after {
+        content: '*';
+        color: $deliveroo-chillijam;
+        font-weight: bold;
+        margin-left: rem(5px);
+      }
+    }
+  }
+
+  span.error {
+    font-size: 10px;
+    position: absolute;
+    bottom: -5px;
+    transform: translateY(100%);
+    display: block;
+    width: 100%;
+    text-align: right;
+    color: $lightgrey;
+    letter-spacing: 0.5px;
+  }
+
+  &.animated {
+    padding-top: rem(10px);
+    z-index: 1;
+
+    label {
+      position: absolute;
+      top: calc(50% + 5px);
+      left: rem(20px);
+      width: 100%;
+      transform: translateY(-50%);
+      transition: all 0.5s $ease-long-tail;
+      color: $lightgrey;
+      pointer-events: none;
+    }
+
+    .pretty {
+      label {
+        position: static;
+        transform: none;
+        pointer-events: initial;
+      }
+    }
+
+    textarea + label {
+      top: rem(40px);
+    }
+
+    textarea,
+    input,
+    select,
+    div {
+      &:focus + label,
+      &.dirty + label {
+        top: rem(-5px);
+        left: 0;
+        color: $brand-primary;
+        font-weight: bold;
+        @include fontSize(12px);
+      }
+    }
+    input.dirty[aria-invalid='false'] + label {
+      /* color: $green; */
+    }
+
+    select {
+      padding-right: rem(24px);
+      background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%);
+      background-position: calc(100% - 15px) calc(50% + 2px),
+        calc(100% - 10px) calc(50% + 2px);
+      background-size: 5px 5px, 5px 5px, 1px 1.5em;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &--stripe,
+  &--savedCard {
+    margin-bottom: 0;
+    padding-top: 0 !important;
+
+    > div {
+      margin-bottom: rem(30px) !important;
+    }
+  }
+
+  &--subscription-delivery {
+    h5 {
+      margin-top: 0;
+      color: $green;
+    }
+  }
+}
+
+.form {
+  width: 100%;
+
+  &__input-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__section {
+    background: $white;
+    padding: rem(40px);
+    border-radius: rem(5px);
+    margin-bottom: rem(50px);
+
+    h3 {
+      margin-bottom: rem(40px);
+    }
+
+    &:first-of-type {
+      h3 {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .vertical .pretty {
+    display: block;
+    margin-bottom: 1.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__error {
+    color: $red;
+    display: block;
+    font-size: 12px;
+    padding: 20px 0;
+    margin-bottom: 18px;
+  }
+
+  &--login {
+    max-width: rem(400px);
+    padding: 0 rem(20px) rem(60px);
+    margin: 0 auto;
+
+    @media screen and (min-width: $medium) {
+      padding: rem(90px) 0;
+    }
+
+    input[type='text'],
+    input[type='password'],
+    input[type='email'] {
+      margin-bottom: rem(20px);
+      background: $silver;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      margin-bottom: rem(15px);
+    }
+
+    &--embedded {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__loading {
+      display: block;
+      text-align: center;
+      background: lighten($green, 30%);
+      padding: rem(5px);
+      border-radius: rem(50px);
+      width: rem(120px);
+      color: $white;
+      font-weight: bold;
+      animation: loadFade 1s infinite alternate linear;
+      margin: rem(30px) auto rem(15px);
+    }
+  }
+
+  &--centered {
+    text-align: center;
+  }
+}
+
+.radio {
+  margin-top: rem(30px);
+  margin-bottom: rem(10px);
+}
+
+.pretty {
+  label {
+    color: $text-color !important;
+    font-size: rem(13px);
+
+    @media screen and (min-width: $small) {
+      font-size: rem(16px);
+    }
+  }
+
+  .state label:before,
+  .state label:after {
+    top: calc((0% - (100% - 1em)) + 30%);
+    background-color: $smoke;
+
+    @media screen and (min-width: $small) {
+      top: calc((0% - (100% - 1em)) - 2%);
+    }
+  }
+
+  input:checked ~ .state.p-success label:after,
+  &.p-toggle .state.p-success label:after {
+    background-color: $deliveroo-teal !important;
+  }
+}

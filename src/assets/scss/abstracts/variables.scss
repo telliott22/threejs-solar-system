@@ -1,0 +1,95 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// Basic Colours
+$white: #ffffff;
+$black: #151515;
+$lightblack: #2e3333;
+$grey: #434848;
+$lightgrey: #828585;
+$silver: #e5e5e5;
+$smoke: #f2f2f2;
+$red: #a22e2e;
+$green: #328b51;
+$ice: #eaf1f3;
+$blue: #6fbdff;
+$darkblue2: #12182d;
+$darkblue: #030615;
+
+// Project colours
+$deliveroo-teal: #00ccbb;
+$deliveroo-teal-dark: #00a396;
+$deliveroo-kelp: #4050fb;
+$deliveroo-kelp-dark: #007e8a;
+$deliveroo-chillijam: #fb5058;
+$deliveroo-anchovy: #8c9b9b;
+$deliveroo-burgersauce: #ff9364;
+$deliveroo-berry: #9c006d;
+$deliveroo-mustard: #ff9700;
+$deliveroo-aubergine: #440063;
+$deliveroo-yellow: #fabe00;
+
+// Site Defaults
+$brand-primary: $darkblue2;
+$brand-primary-contrast: $white;
+$background: $deliveroo-aubergine;
+
+// Defaults
+$text-color: $lightblack;
+$alt-text-color: $white;
+$base-padding: 60px;
+$narrow-width: 800px;
+$less-narrow-width: 1020px;
+$grid-margin: 30px;
+
+/// Letter spacing
+$letter-spacing-text: 0em;
+$letter-spacing-heading: 1.5px;
+
+/// Regular font family
+$text-font-stack: 'ibm-plex-sans', sans-serif !default;
+
+/// Header font family
+$header-font-stack: 'stratos', 'Helvetica Neue', 'Helvetica', 'Arial',
+  sans-serif !default;
+
+// Breakpoints
+$xsmall: 321px;
+$small: 569px;
+$medium: 769px;
+$large: 1100px;
+$xlarge: 1260px;
+$super: 1800px;
+
+/// CSS Easing Functions
+/// @type String
+$ease-in-out-circ: cubic-bezier(0.72, 0.01, 0.13, 1);
+$ease-in-out-quad: cubic-bezier(0.54, 0.01, 0.5, 1);
+$ease-in-out-sexy: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-long-tail: cubic-bezier(0.03, 0.79, 0.29, 1);
+$ease-swing: cubic-bezier(0.03, 0.79, 0.29, 1);
+
+/// Common SVG shape data URIs
+/// Save the full SVG code only in variables. Can be used for simple or
+/// complicated SVGs, but probably more useful for simple ones.
+/// For colourless (black) SVG icons, remove the fill color hex code
+/// but don't remove the rule or the semicolon after –
+/// e.g. <style type="text/css">.st0{fill:#FFFFFF;}</style> becomes
+/// <style type="text/css">.st0{fill:;}</style>.
+/// If your SVG doesn't have a style attribute, you can generate them
+/// everywhere they need to be by opening it in illustrator and changing
+/// the color to white.
+/// If you aren't going to be changing the color of the SVG with CSS
+/// or the SVG has multiple colors you can skip this step and leave
+/// the code as it is.
+///
+/// @type String
+/// @see {function} svg-url
+$svg-arrow-right: '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.9 75.7" style="enable-background:new 0 0 62.9 75.7;" xml:space="preserve"><style type="text/css">.st0{fill:;}</style><polygon class="st0" points="0,0 62.9,37.9 0,75.7 "/></svg>';
+$svg-arrow-down: '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 75.7 62.9" style="enable-background:new 0 0 75.7 62.9;" xml:space="preserve"><style type="text/css">.st0{fill:;}</style><polygon class="st0" points="75.7,0 37.9,62.9 0,0 "/></svg>';
+$svg-arrow-up: '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 75.7 62.9" style="enable-background:new 0 0 75.7 62.9;" xml:space="preserve"><style type="text/css">.st0{fill:;}</style><polygon class="st0" points="0,62.9 37.9,0 75.7,62.9 "/></svg>';
+$svg-arrow-left: '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.9 75.7" style="enable-background:new 0 0 62.9 75.7;" xml:space="preserve"><style type="text/css">.st0{fill:;}</style><polygon class="st0" points="62.9,75.7 0,37.9 62.9,0 "/></svg>';
+$svg-chevron-right: '<svg width="18px" height="31px" viewBox="208 0 18 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:;}</style><polygon class="st0" stroke="none" transform="translate(217.233633, 15.000000) scale(-1, 1) translate(-217.233633, -15.000000) " points="216.499895 22.5000106 209 15.0000201 216.500105 7.50001007 224.00021 0 224.733738 0.733526532 225.467265 1.46705271 218.68989 8.24453316 211.912514 15.0220133 218.678776 21.7883815 225.445038 28.554748 224.722414 29.2773723 223.99979 30 216.499895 22.5000106"></polygon></svg>';
+$svg-chevron-left: '<svg width="17px" height="31px" viewBox="159 0 17 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:;}</style><polygon class="st0" stroke="none" points="166.499895 22.5000106 159 15.0000201 166.500105 7.50001007 174.00021 0 174.733738 0.733526532 175.467265 1.46705271 168.68989 8.24453316 161.912514 15.0220133 168.678776 21.7883815 175.445038 28.554748 174.722414 29.2773723 173.99979 30 166.499895 22.5000106"></polygon></svg>';
+$svg-chevron-down: '<svg viewBox="0 0 30 16.5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:;}</style><polygon class="st0" stroke="none" points="22.5,9 15,16.5 7.5,9 0,1.5 0.7,0.7 1.5,0 8.2,6.8 15,13.6 21.8,6.8 28.6,0 29.3,0.7 30,1.5 "></polygon></svg>';

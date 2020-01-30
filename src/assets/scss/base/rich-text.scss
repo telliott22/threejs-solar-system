@@ -1,0 +1,54 @@
+.rich-text {
+    ul {
+        li {
+            list-style: none;
+            padding-left: rem(30px);
+            margin-bottom: rem(5px);
+
+            &:before {
+              color: $deliveroo-teal;  
+              content: "\2022";
+              font-size: 2.2em;
+              line-height: 1;
+              left: calc(-0.08em - 30px);
+              margin-right: -0.4em;
+              position: relative;
+              top: 0.18em;
+          }
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .panel-list {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                border-bottom: 1px solid $smoke;
+                padding-bottom: rem(24px);
+                margin-bottom: rem(10px);
+            }
+        }
+    }
+
+    a {
+        color: $deliveroo-teal;
+        text-decoration: underline;
+        font-weight: bold;
+
+        &:hover {
+            color: $deliveroo-kelp-dark;
+        }
+
+        & .button {
+            color: $white;
+            text-decoration: none;
+            margin: rem(18px) rem(15px) rem(18px) 0;
+        }
+    }
+}

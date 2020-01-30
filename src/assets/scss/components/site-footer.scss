@@ -1,0 +1,124 @@
+.site-footer {
+  background: $lightblack;
+  color: $alt-text-color;
+  font-weight: 300;
+  font-size: rem(14px);
+  padding: rem(30px) 0 rem(30px);
+  position: relative;
+  z-index: 101;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: rem(30px) 0;
+    overflow-x: scroll;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      background: $grey;
+      padding: rem(5px) rem(30px) rem(25px);
+      flex: 0 0 300px;
+      border-radius: rem(3px);
+      margin-bottom: rem(20px);
+      margin-right: rem(20px);
+
+      @media screen and (min-width: $medium) {
+        flex: 0 0 calc(50% - 20px);
+      }
+
+      @media screen and (min-width: $large) {
+        flex: 0 0 calc(25% - 20px);
+        margin-bottom: 0;
+        margin-right: 0;
+      }
+
+      li {
+        margin-bottom: rem(5px);
+
+        a {
+          color: $alt-text-color;
+
+          img {
+            width: rem(135px);
+          }
+
+          &:hover {
+            color: $deliveroo-teal;
+          }
+        }
+      }
+    }
+  }
+
+  .group-heading {
+    h4 {
+      font-family: $header-font-stack;
+      font-size: rem(16px);
+      font-weight: 700;
+      letter-spacing: rem(-0.16px);
+      line-height: rem(36px);
+      font-style: normal;
+      margin: rem(20px) 0;
+    }
+  }
+
+  .copyright {
+    color: #626666;
+    font-size: rem(14px);
+  }
+
+  .social-links {
+    list-style: none;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      margin-right: rem(20px);
+
+      a {
+        color: $alt-text-color;
+        font-size: rem(28px);
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 100px;
+          height: rem(45px);
+          width: rem(45px);
+          background-color: transparent;
+          z-index: -1;
+        }
+
+        &.facebook:hover:before {
+          background-color: #3b5997;
+        }
+
+        &.twitter:hover:before {
+          background-color: #55abee;
+        }
+
+        &.instagram:hover:before {
+          background-color: #517fa4;
+        }
+      }
+    }
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.layout--results {
+  .site-footer {
+    display: none;
+  }
+}

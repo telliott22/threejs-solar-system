@@ -1,0 +1,46 @@
+.half-centered {
+	padding: 0 rem(60px);
+	@media (min-width: $medium) {
+		padding: 0;
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+
+.narrow-centered {
+	padding: 0 rem(60px);
+	@media (min-width: $medium) {
+		padding: 0;
+		width: 75%;
+		margin: 0 auto;
+	}
+	@media (min-width: $large) {
+		padding: 0;
+		width: 33%;
+	}
+}
+
+.column-wrapper {
+	@include clearfix();
+	margin-left: rem(-60px);
+	margin-right: rem(-60px);
+
+	@media (min-width: $medium) {
+		margin-left: rem(-20px);
+		margin-right: rem(-20px);
+	}
+}
+
+.half-column {
+	@media (min-width: $medium) {
+		width: 50%;
+	}
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
