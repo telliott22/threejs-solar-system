@@ -1,39 +1,25 @@
-.main-nav {
-  height: rem(100px);
+.nav {
+
   position: absolute;
-  width: 100%;
-  z-index: 20000;
-  padding-top: 30px;
+  top: 0;
+  left: 0;
+  padding: rem(50px);
 
-  @media (min-width: $medium) {
-    padding-top: 60px;
-  }
-
-  ul {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
+  &__list {
     list-style-type: none;
 
-    li {
+    &-item {
       color: $white;
+      cursor: pointer;
 
-      .logo {
-        width: rem(140px);
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &.selected {
+        text-decoration: underline;
       }
     }
   }
 
-  &--hidden {
-    display: none;
-  }
-
-  &--logo-only {
-    .button {
-      display: none;
-    }
-  }
 }

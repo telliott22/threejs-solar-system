@@ -1,0 +1,15 @@
+.facts {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: rem(50px);
+  color: $white;
+
+  max-width: 40%;
+
+  // animation: slideUp 0.5s;
+
+  ul {
+    list-style-type: none;
+  }
+}

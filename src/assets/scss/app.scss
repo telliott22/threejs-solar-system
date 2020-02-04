@@ -26,19 +26,5 @@
 @import 'layout/slice';
 
 // Components
-@import '@/assets/scss/components/logo.scss';
-@import '@/assets/scss/components/tile-grid.scss';
-@import '@/assets/scss/components/tile.scss';
-@import '@/assets/scss/components/nav.scss';
-@import '@/assets/scss/components/hamburger.scss';
-@import '@/assets/scss/components/site-footer.scss';
-@import '@/assets/scss/components/application-form.scss';
-@import '@/assets/scss/components/promo.scss';
-@import '@/assets/scss/components/suggestions.scss';
-@import '@/assets/scss/components/modal.scss';
-@import '@/assets/scss/components/results-explorer.scss';
-@import '@/assets/scss/components/login.scss';
-@import '@/assets/scss/components/confetti.scss';
-@import '@/assets/scss/components/hero.scss';
-@import '@/assets/scss/components/thumb.scss';
-@import '@/assets/scss/components/voter-signout.scss';
+@import 'components/nav.scss';
+@import 'components/facts.scss';
