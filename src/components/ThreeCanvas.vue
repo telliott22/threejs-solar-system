@@ -401,8 +401,8 @@ export default {
           if (this.objects.planets.hasOwnProperty(object)) {
             const element = this.objects.planets[object];
 
-            var sphereAxis = new THREE.AxesHelper(10);
-            element.add(sphereAxis);
+            // var sphereAxis = new THREE.AxesHelper(10);
+            // element.add(sphereAxis);
 
             element.cursor = "pointer";
 
