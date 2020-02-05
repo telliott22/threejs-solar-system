@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "camera-controls": "^1.18.2",
     "core-js": "^3.4.4",
     "postprocessing": "^6.10.0",
     "splitting": "^1.0.6",

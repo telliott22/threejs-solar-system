@@ -13,6 +13,22 @@
         v-html="fact"
       />
     </ul>
+    <!-- 
+    <input
+      type="number"
+      v-model="planetZ"
+      placeholder="Z rotation"
+    >
+    <input
+      type="number"
+      v-model="planetX"
+      placeholder="Z rotation"
+    >
+    <input
+      type="number"
+      v-model="planetY"
+      placeholder="Z rotation"
+    > -->
 
   </section>
 </template>
@@ -25,6 +41,9 @@ export default {
   components: {},
   data() {
     return {
+      planetZ: 0,
+      planetY: 0,
+      planetX: 0,
       hideFacts: false,
       facts: {
         sun: {
@@ -115,10 +134,37 @@ export default {
       setTimeout(() => {
         this.hideFacts = false;
       }, 1000);
+    },
+    planetZ(newVal) {
+      let rotation = {
+        z: newVal,
+        y: this.planetY,
+        x: this.planetX
+      };
+
+      this.$store.dispatch("SET_PLANET_ROTATION", rotation);
     }
+    // planetX(newVal) {
+    //   let rotation = {
+    //     z: this.planetZ,
+    //     y: this.planetY,
+    //     x: newVal
+    //   };
+
+    //   this.$store.dispatch("SET_PLANET_ROTATION", rotation);
+    // }
   },
   mounted() {},
-  methods: {}
+  methods: {
+    // setPlanetRotation() {
+    //   let rotation = {
+    //     z: planetZ,
+    //     y: planetY,
+    //     x: planetX
+    //   };
+    //   this.$store.dispatch("SET_PLANET_ROTATION", rotation);
+    // }
+  }
 };
 </script>
 
