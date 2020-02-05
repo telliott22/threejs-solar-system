@@ -2,14 +2,20 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: rem(50px);
+  padding: rem(20px);
   color: $white;
 
   max-width: 40%;
 
-  // animation: slideUp 0.5s;
+  animation: fadeIn 0.2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
 
   ul {
     list-style-type: none;
+  }
+
+  @media (min-width: $medium) {
+    padding: rem(50px);
   }
 }

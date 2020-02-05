@@ -5,7 +5,6 @@
 <script>
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-// import { OrbitControls } from "../helpers/OrbitControls";
 import { Interaction } from "three.interaction";
 import {
   BloomEffect,
@@ -28,7 +27,8 @@ export default {
   data() {
     return {
       system: {
-        orbitsRotating: true
+        orbitsRotating: true,
+        showClickMaps: false
       },
       objects: {
         planets: {},
@@ -42,9 +42,9 @@ export default {
   },
   watch: {
     selectedPlanet(newVal, oldVal) {
-      this.oldWorldPosition = this.objects.planets[oldVal].getWorldPosition();
-
-      this.focusOnPlanet(newVal);
+      if (newVal !== oldVal) {
+        this.focusOnPlanet(newVal);
+      }
     },
     planetRotation(newVal) {
       this.objects.planets.uranus.rotation.z = newVal.z;
@@ -88,10 +88,6 @@ export default {
         1,
         1500
       );
-      // this.system.camera.position.z = 50;
-      // this.system.camera.position.x = 20;
-      // this.system.camera.position.y = 40;
-      // this.system.camera.lookAt(0, 0, 0);
 
       this.system.scene.add(this.system.camera);
 
@@ -109,11 +105,6 @@ export default {
         this.system.camera,
         this.system.renderer.domElement
       );
-
-      // this.system.orbitControls = new OrbitControls(
-      //   this.system.camera,
-      //   this.system.renderer.domElement
-      // );
 
       this.system.orbitControls.setLookAt(50, 20, 40, 0, 0, 0);
       this.system.orbitControls.autoRotate = false;
@@ -178,9 +169,22 @@ export default {
       this.system.loader.load("/models/mercury/scene.gltf", gltf => {
         $this.objects.planets.mercury = gltf.scene;
         $this.objects.planets.mercury.scale.set(0.3, 0.3, 0.3);
-        this.objects.planets.mercury.position.x = 10;
+        $this.objects.planets.mercury.position.x = 10;
         $this.objects.planets.mercury.maxZoom = 1;
         $this.objects.orbits.mercuryOrbit.add($this.objects.planets.mercury);
+
+        let mercuryClickMapGeometry = new THREE.SphereGeometry(3, 32, 24);
+        let mercuryClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let mercuryClickMap = new THREE.Mesh(
+          mercuryClickMapGeometry,
+          mercuryClickMapMaterial
+        );
+
+        $this.objects.planets.mercury.add(mercuryClickMap);
       });
 
       /*
@@ -196,6 +200,19 @@ export default {
         this.objects.planets.venus.position.x = 15;
         $this.objects.planets.venus.maxZoom = 2;
         $this.objects.orbits.venusOrbit.add($this.objects.planets.venus);
+
+        let venusClickMapGeometry = new THREE.SphereGeometry(3, 32, 24);
+        let venusClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let venusClickMap = new THREE.Mesh(
+          venusClickMapGeometry,
+          venusClickMapMaterial
+        );
+
+        $this.objects.planets.venus.add(venusClickMap);
       });
 
       /*
@@ -210,6 +227,19 @@ export default {
         $this.objects.planets.earth.position.x = 20;
         $this.objects.planets.earth.maxZoom = 2;
         $this.objects.orbits.earthOrbit.add($this.objects.planets.earth);
+
+        let earthClickMapGeometry = new THREE.SphereGeometry(2, 32, 24);
+        let earthClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let earthClickMap = new THREE.Mesh(
+          earthClickMapGeometry,
+          earthClickMapMaterial
+        );
+
+        $this.objects.planets.earth.add(earthClickMap);
 
         /*
           Moon
@@ -239,6 +269,19 @@ export default {
         $this.objects.planets.mars.position.x = 25;
         $this.objects.planets.mars.maxZoom = 2;
         $this.objects.orbits.marsOrbit.add($this.objects.planets.mars);
+
+        let marsClickMapGeometry = new THREE.SphereGeometry(2, 32, 24);
+        let marsClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let marsClickMap = new THREE.Mesh(
+          marsClickMapGeometry,
+          marsClickMapMaterial
+        );
+
+        $this.objects.planets.mars.add(marsClickMap);
       });
 
       /*
@@ -253,6 +296,19 @@ export default {
         $this.objects.planets.jupiter.position.x = 40;
         $this.objects.planets.jupiter.maxZoom = 10;
         $this.objects.orbits.jupiterOrbit.add($this.objects.planets.jupiter);
+
+        let jupiterClickMapGeometry = new THREE.SphereGeometry(2, 32, 24);
+        let jupiterClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let jupiterClickMap = new THREE.Mesh(
+          jupiterClickMapGeometry,
+          jupiterClickMapMaterial
+        );
+
+        $this.objects.planets.jupiter.add(jupiterClickMap);
       });
 
       /*
@@ -267,6 +323,19 @@ export default {
         $this.objects.planets.saturn.position.x = 50;
         $this.objects.planets.saturn.maxZoom = 10;
         $this.objects.orbits.saturnOrbit.add($this.objects.planets.saturn);
+
+        let saturnClickMapGeometry = new THREE.SphereGeometry(300, 32, 24);
+        let saturnClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let saturnClickMap = new THREE.Mesh(
+          saturnClickMapGeometry,
+          saturnClickMapMaterial
+        );
+
+        $this.objects.planets.saturn.add(saturnClickMap);
       });
 
       /*
@@ -281,6 +350,19 @@ export default {
         $this.objects.planets.uranus.position.x = 60;
         $this.objects.planets.uranus.maxZoom = 8;
         $this.objects.orbits.uranusOrbit.add($this.objects.planets.uranus);
+
+        let uranusClickMapGeometry = new THREE.SphereGeometry(700, 32, 24);
+        let uranusClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let uranusClickMap = new THREE.Mesh(
+          uranusClickMapGeometry,
+          uranusClickMapMaterial
+        );
+
+        $this.objects.planets.uranus.add(uranusClickMap);
       });
 
       /*
@@ -295,6 +377,19 @@ export default {
         $this.objects.planets.neptune.position.x = 70;
         $this.objects.planets.neptune.maxZoom = 8;
         $this.objects.orbits.neptuneOrbit.add($this.objects.planets.neptune);
+
+        let neptuneClickMapGeometry = new THREE.SphereGeometry(30, 32, 24);
+        let neptuneClickMapMaterial = new THREE.MeshLambertMaterial({
+          color: 0xff0000,
+          transparent: true,
+          opacity: this.system.showClickMaps ? 0.5 : 0
+        });
+        let neptuneClickMap = new THREE.Mesh(
+          neptuneClickMapGeometry,
+          neptuneClickMapMaterial
+        );
+
+        $this.objects.planets.neptune.add(neptuneClickMap);
       });
 
       /*
@@ -305,6 +400,9 @@ export default {
         for (const object in this.objects.planets) {
           if (this.objects.planets.hasOwnProperty(object)) {
             const element = this.objects.planets[object];
+
+            var sphereAxis = new THREE.AxesHelper(10);
+            element.add(sphereAxis);
 
             element.cursor = "pointer";
 
@@ -418,15 +516,10 @@ export default {
       const delta = this.system.clock.getDelta();
       const updated = this.system.orbitControls.update(delta);
 
-      if (updated) {
-        this.system.composer.render();
-      }
-
-      // this.system.renderer.render(this.system.scene, this.system.camera);
+      // if (updated) {
+      this.system.composer.render();
+      // }
     },
-    // timer(ms) {
-    //   return new Promise(res => setTimeout(res, ms));
-    // },
     rotate(object, multiplier = 1, rotationDirection = "y") {
       if (object) {
         var elapsedMilliseconds = Date.now() - this.system.startTime;
@@ -461,134 +554,9 @@ export default {
           true
         );
 
-        console.log("planet.maxZoom", planet.maxZoom);
+        // console.log("planet.maxZoom", planet.maxZoom);
 
-        this.system.orbitControls.dollyTo(planet.maxZoom);
-
-        // // let newWolrdPoi
-        // let currentWorldPosition = this.oldWorldPosition;
-
-        // let differenceBetweenPositions = {
-        //   z: currentWorldPosition.z - futureWorldPosition.z,
-        //   x: currentWorldPosition.x - futureWorldPosition.x,
-        //   y: currentWorldPosition.y - futureWorldPosition.y
-        // };
-
-        // let startIndex = 30;
-        // let index = startIndex;
-
-        // do {
-        //   currentWorldPosition.z =
-        //     futureWorldPosition.z +
-        //     (differenceBetweenPositions.z / startIndex) * index;
-
-        //   currentWorldPosition.x =
-        //     futureWorldPosition.x +
-        //     (differenceBetweenPositions.x / startIndex) * index;
-
-        //   currentWorldPosition.y =
-        //     futureWorldPosition.y +
-        //     (differenceBetweenPositions.y / startIndex) * index;
-
-        //   index--;
-
-        //   console.log("planet.maxZoom", planet.maxZoom);
-
-        //   // let reverseIndex = index;
-
-        //   // let dollyAmount =
-        //   //    planet.maxZoom;
-
-        //   // console.log("dollyAmount", dollyAmount);
-
-        //   // this.system.orbitControls.dollyIn(planet.maxZoom);
-
-        //   // console.log(
-        //   //   "this.system.camera.position.z",
-        //   //   this.system.camera.position.z
-        //   // );
-
-        //   // this.system.camera.position.z =
-        //   //   currentWorldPosition.z + planet.maxZoom;
-
-        //   // this.system.camera.updateProjectionMatrix();
-
-        //   // console.log(
-        //   //   "this.system.camera.position.z",
-        //   //   this.system.camera.position.z
-        //   // );
-
-        //   this.system.orbitControls.target = currentWorldPosition;
-
-        //   this.system.orbitControls.update();
-
-        //   await this.timer(15);
-        // } while (index > 0);
-
-        // this.system.orbitControls.dolly(planet.maxZoom);
-
-        // // do {
-        // //   if (
-        // //     Math.floor(currentWorldPosition.z) <
-        // //     Math.floor(futureWorldPosition.z)
-        // //   ) {
-        // //     currentWorldPosition.z++;
-        // //   } else if (
-        // //     Math.floor(currentWorldPosition.z) >
-        // //     Math.floor(futureWorldPosition.z)
-        // //   ) {
-        // //     currentWorldPosition.z--;
-        // //   }
-
-        // //   if (
-        // //     Math.floor(currentWorldPosition.x) <
-        // //     Math.floor(futureWorldPosition.x)
-        // //   ) {
-        // //     currentWorldPosition.x++;
-        // //   } else if (
-        // //     Math.floor(currentWorldPosition.x) >
-        // //     Math.floor(futureWorldPosition.x)
-        // //   ) {
-        // //     currentWorldPosition.x--;
-        // //   }
-
-        // //   if (
-        // //     Math.floor(currentWorldPosition.y) <
-        // //     Math.floor(futureWorldPosition.y)
-        // //   ) {
-        // //     currentWorldPosition.y++;
-        // //   } else if (
-        // //     Math.floor(currentWorldPosition.y) >
-        // //     Math.floor(futureWorldPosition.y)
-        // //   ) {
-        // //     currentWorldPosition.y--;
-        // //   }
-
-        // //   // console.log("currentWorldPosition", currentWorldPosition);
-        // //   // console.log("futureWorldPosition", futureWorldPosition);
-
-        // //   this.system.orbitControls.target = currentWorldPosition;
-
-        // //   this.system.orbitControls.update();
-
-        // //   await this.timer(20);
-        // // } while (
-        // //   Math.floor(currentWorldPosition.z) !==
-        // //     Math.floor(futureWorldPosition.z) ||
-        // //   Math.floor(currentWorldPosition.y) !==
-        // //     Math.floor(futureWorldPosition.y) ||
-        // //   Math.floor(currentWorldPosition.x) !==
-        // //     Math.floor(futureWorldPosition.x)
-        // // );
-
-        // // this.system.orbitControls.dollyIn(1);
-        // // this.system.orbitControls.update();
-
-        // // this.system.orbitControls.target = futureWorldPosition;
-        // // this.system.orbitControls.dollyIn(10);
-
-        // // this.system.orbitControls.update();
-        // // }
+        this.system.orbitControls.dollyTo(planet.maxZoom, true);
       }
     }
   }
