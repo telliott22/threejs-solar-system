@@ -1,5 +1,7 @@
 # solar-system
 
+https://solar-system.darkblue.now.sh/
+
 ## Project setup
 ```
 npm install
