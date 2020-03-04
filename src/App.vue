@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <div
-      class="page--loading"
       v-if="loadedModelsCount !== modelsCount"
+      class="page--loading"
     >
-      <h1 class="
-      loadingText">LOADING</h1>
+      <h1 class="loadingText">
+        LOADING
+      </h1>
       <h2>Best viewed on desktop :)</h2>
     </div>
     <div v-show="loadedModelsCount === modelsCount">
