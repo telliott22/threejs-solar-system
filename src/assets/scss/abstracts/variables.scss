@@ -33,7 +33,7 @@ $deliveroo-yellow: #fabe00;
 // Site Defaults
 $brand-primary: $darkblue2;
 $brand-primary-contrast: $white;
-$background: $deliveroo-aubergine;
+$background: $darkblue2;
 
 // Defaults
 $text-color: $lightblack;
@@ -48,11 +48,15 @@ $letter-spacing-text: 0em;
 $letter-spacing-heading: 1.5px;
 
 /// Regular font family
-$text-font-stack: 'ibm-plex-sans', sans-serif !default;
+$text-font-stack: 'ibm-plex-sans',
+sans-serif !default;
 
 /// Header font family
-$header-font-stack: 'stratos', 'Helvetica Neue', 'Helvetica', 'Arial',
-  sans-serif !default;
+$header-font-stack: 'stratos',
+'Helvetica Neue',
+'Helvetica',
+'Arial',
+sans-serif !default;
 
 // Breakpoints
 $xsmall: 321px;

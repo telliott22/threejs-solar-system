@@ -57,6 +57,9 @@ export default {
     this.animate();
   },
   methods: {
+    increaseLoadedModelsCount() {
+      this.$parent.loadedModelsCount++;
+    },
     async init() {
       this.system.clock = new THREE.Clock();
 
@@ -158,6 +161,8 @@ export default {
         $this.objects.planets.sun.scale.set(0.5, 0.5, 0.5);
         $this.objects.planets.sun.maxZoom = 80;
         $this.objects.orbits.solarSystem.add($this.objects.planets.sun);
+
+        this.increaseLoadedModelsCount();
       });
 
       /*
@@ -185,6 +190,7 @@ export default {
         );
 
         $this.objects.planets.mercury.add(mercuryClickMap);
+        this.increaseLoadedModelsCount();
       });
 
       /*
@@ -213,6 +219,7 @@ export default {
         );
 
         $this.objects.planets.venus.add(venusClickMap);
+        this.increaseLoadedModelsCount();
       });
 
       /*
@@ -240,6 +247,7 @@ export default {
         );
 
         $this.objects.planets.earth.add(earthClickMap);
+        this.increaseLoadedModelsCount();
 
         /*
           Moon
@@ -254,6 +262,7 @@ export default {
           $this.objects.planets.moon = gltf.scene;
           $this.objects.planets.moon.scale.set(0.2, 0.2, 0.2);
           $this.objects.orbits.moonOrbit.add($this.objects.planets.moon);
+          this.increaseLoadedModelsCount();
         });
       });
 
@@ -282,6 +291,7 @@ export default {
         );
 
         $this.objects.planets.mars.add(marsClickMap);
+        this.increaseLoadedModelsCount();
       });
 
       /*
@@ -309,6 +319,7 @@ export default {
         );
 
         $this.objects.planets.jupiter.add(jupiterClickMap);
+        this.increaseLoadedModelsCount();
       });
 
       /*
@@ -336,6 +347,7 @@ export default {
         );
 
         $this.objects.planets.saturn.add(saturnClickMap);
+        this.increaseLoadedModelsCount();
       });
 
       /*
@@ -363,6 +375,7 @@ export default {
         );
 
         $this.objects.planets.uranus.add(uranusClickMap);
+        this.increaseLoadedModelsCount();
       });
 
       /*
@@ -390,6 +403,7 @@ export default {
         );
 
         $this.objects.planets.neptune.add(neptuneClickMap);
+        this.increaseLoadedModelsCount();
       });
 
       /*

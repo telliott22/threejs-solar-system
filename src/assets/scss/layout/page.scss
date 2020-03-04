@@ -1,15 +1,10 @@
 .page {
-  &--category {
-    position: relative;
-    z-index: 1000;
-  }
-
-  &--terms-and-conditions {
-    background-color: $white;
-    text-align: left;
-    a {
-      color: $deliveroo-aubergine !important;
-      font-weight: bold;
-    }
+  &--loading {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 }
